@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Department.png" />
+    <None Remove="Employee.png" />
+    <None Remove="Logo.png" />
+    <None Remove="people-group.png" />
+    <None Remove="people-group.svg" />
+    <None Remove="Permission.png" />
+    <None Remove="Position.png" />
+    <None Remove="Salary.png" />
+    <None Remove="Task.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.36">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.36" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.36">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DB\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Department.png" />
+    <Resource Include="Employee.png" />
+    <Resource Include="Logo.png" />
+    <Resource Include="people-group.png" />
+    <Resource Include="people-group.svg" />
+    <Resource Include="Permission.png" />
+    <Resource Include="Position.png" />
+    <Resource Include="Salary.png" />
+    <Resource Include="Task.png" />
+  </ItemGroup>
+
+</Project>
