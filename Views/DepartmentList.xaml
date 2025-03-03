@@ -17,10 +17,34 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Margin="40,5,40,5" Name="btnAdd" Content="Dodaj" FontSize="18" FontWeight="Bold"/>
-            <Button Grid.Column="1" Margin="40,5,40,5" Name="btnUpdate" Content="Aktualizuj" FontSize="18" FontWeight="Bold"/>
-            <Button Grid.Column="2" Margin="40,5,40,5" Name="btnDelete" Content="Usuń" FontSize="18" FontWeight="Bold"/>
+            <Button Grid.Column="0" Margin="40,5,40,5" 
+                    Name="btnAdd" Content="Dodaj" 
+                    FontSize="18" FontWeight="Bold"
+                    Background="#FFEFB053"
+                    Click="btnAdd_Click" />
+            <Button Grid.Column="1" Margin="40,5,40,5" 
+                    Name="btnUpdate" Content="Aktualizuj" 
+                    FontSize="18" FontWeight="Bold"
+                    Background="#FFEFB053"
+                    Click="btnUpdate_Click" />
+            <Button Grid.Column="2" Margin="40,5,40,5" 
+                    Name="btnDelete" Content="Usuń" 
+                    FontSize="18" FontWeight="Bold"
+                    Background="#FFEFB053"
+                    Click="btnDelete_Click" />
         </Grid>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" />
+        <DataGrid x:Name="gridDepartment"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"
+                                    Binding="{Binding Id}" 
+                                    Visibility="Hidden"/>
+                <DataGridTextColumn Header="DepartmentName"
+                                    Binding="{Binding DepartmentName}" 
+                                    Width="auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

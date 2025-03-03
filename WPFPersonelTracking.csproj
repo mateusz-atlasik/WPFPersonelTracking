@@ -10,7 +10,9 @@
   <ItemGroup>
     <None Remove="Department.png" />
     <None Remove="Employee.png" />
+    <None Remove="Exit.png" />
     <None Remove="Logo.png" />
+    <None Remove="Logout.png" />
     <None Remove="people-group.png" />
     <None Remove="people-group.svg" />
     <None Remove="Permission.png" />
@@ -38,7 +40,9 @@
   <ItemGroup>
     <Resource Include="Department.png" />
     <Resource Include="Employee.png" />
+    <Resource Include="Exit.png" />
     <Resource Include="Logo.png" />
+    <Resource Include="Logout.png" />
     <Resource Include="people-group.png" />
     <Resource Include="people-group.svg" />
     <Resource Include="Permission.png" />

@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFPersonelTracking"
+        xmlns:views="clr-namespace:WPFPersonelTracking.Views"
+        xmlns:viewmodels="clr-namespace:WPFPersonelTracking.ViewModels"
         mc:Ignorable="d"
-        Title="Perseusz"
+        Title="Kołhoźnik v0.1"
         Name="PersonelMainWindow"
         WindowStartupLocation="CenterScreen"
         Height="540"
@@ -34,16 +36,16 @@
         </Grid.RowDefinitions>
         <Image Source="/Logo.png" />
         <ContentControl Grid.Column="1"
-                        Content=""
+                        Content="{Binding}"
                         Grid.Row="1"
                         Grid.RowSpan="8"
                         Height="NaN"
                         Width="NaN" />
         <Label x:Name="lblWindowName"
                Grid.Column="1"
-               Content="Window Name"
+               Content=""
                HorizontalAlignment="Center"
-               Margin="235,0,0,0"
+               Margin="0,0,0,0"
                VerticalAlignment="Center"
                FontSize="24" />
         <StackPanel Grid.Row="1" Margin="0,2,0,0">
@@ -156,7 +158,8 @@
                     Height="60"
                     Width="250"
                     HorizontalAlignment="Left"
-                    Background="#FFEFB053">
+                    Background="#FFEFB053"
+                    Click="btnDepartment_Click">
                 <Grid Width="230">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
@@ -219,7 +222,7 @@
                            Width="auto"
                            Height="auto"
                            Margin="0,5,10,0"
-                           Source="/Position.png" />
+                           Source="/Logout.png" />
                     <TextBlock Text="Wyloguj"
                                Grid.Column="1"
                                HorizontalAlignment="Left"
@@ -245,7 +248,7 @@
                            Width="auto"
                            Height="auto"
                            Margin="0,5,10,0"
-                           Source="/Position.png" />
+                           Source="/Exit.png" />
                     <TextBlock Text="Wyjdź"
                                Grid.Column="1"
                                HorizontalAlignment="Left"
@@ -255,5 +258,13 @@
         </StackPanel>
 
     </Grid>
+    <Window.Resources>
+        <DataTemplate x:Name="DepartmentTemplate" 
+                      DataType="{x:Type viewmodels:DepartmentViewModel}">
+            <views:DepartmentList>
+                
+            </views:DepartmentList>
+        </DataTemplate>
+    </Window.Resources>
 </Window>
 

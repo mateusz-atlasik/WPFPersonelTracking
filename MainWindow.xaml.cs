@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFPersonelTracking.DB;
+using WPFPersonelTracking.ViewModels;
 
 namespace WPFPersonelTracking
 {
@@ -32,6 +34,12 @@ namespace WPFPersonelTracking
             { 
                 
             }
+        }
+
+        private void btnDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            lblWindowName.Content = "Lista Działów";
+            DataContext = new DepartmentViewModel();
         }
     }
 }

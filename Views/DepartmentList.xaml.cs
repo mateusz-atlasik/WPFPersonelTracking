@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFPersonelTracking.DB;
 
 namespace WPFPersonelTracking.Views
 {
@@ -23,6 +24,31 @@ namespace WPFPersonelTracking.Views
         public DepartmentList()
         {
             InitializeComponent();
+            using(PersonelTrackingContext db = new PersonelTrackingContext())
+            {
+                List<Department> list = db.Departments.OrderBy(x=>x.DepartmentName).ToList();
+                gridDepartment.ItemsSource = list;
+            }
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            DepartmentPage dpg = new DepartmentPage();
+            dpg.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            using (PersonelTrackingContext db = new PersonelTrackingContext())
+            {
+                List<Department> list = db.Departments.OrderBy(x => x.DepartmentName).ToList();
+                gridDepartment.ItemsSource = list;
+            }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
