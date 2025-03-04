@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:WPFPersonelTracking.Views"
         xmlns:viewmodels="clr-namespace:WPFPersonelTracking.ViewModels"
         mc:Ignorable="d"
-        Title="Kołhoźnik v0.1"
+        Title="Personel v0.3"
         Name="PersonelMainWindow"
         WindowStartupLocation="CenterScreen"
         Height="540"
@@ -66,7 +66,7 @@
                            Height="auto"
                            Margin="0,5,10,0"
                            Source="/Employee.png" />
-                    <TextBlock Text="Kołhoźnik"
+                    <TextBlock Text="Pracownik"
                                Grid.Column="1"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center" />
@@ -185,7 +185,8 @@
                     Height="60"
                     Width="250"
                     HorizontalAlignment="Left"
-                    Background="#FFEFB053">
+                    Background="#FFEFB053"
+                    Click="btnPosition_Click">
                 <Grid Width="230">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto" />
@@ -199,7 +200,6 @@
                            Source="/Position.png" />
                     <TextBlock Text="Stanowisko"
                                Grid.Column="1"
-                               HorizontalAlignment="Left"
                                VerticalAlignment="Center" />
                 </Grid>
             </Button>
@@ -259,11 +259,15 @@
 
     </Grid>
     <Window.Resources>
-        <DataTemplate x:Name="DepartmentTemplate" 
-                      DataType="{x:Type viewmodels:DepartmentViewModel}">
+        <DataTemplate x:Name="DepartmentTemplate" DataType="{x:Type viewmodels:DepartmentViewModel}">
             <views:DepartmentList>
                 
             </views:DepartmentList>
+        </DataTemplate>
+        <DataTemplate x:Name="PositionTemplate" DataType="{x:Type viewmodels:PositionViewModel}">
+            <views:PositionList>
+                
+            </views:PositionList>
         </DataTemplate>
     </Window.Resources>
 </Window>

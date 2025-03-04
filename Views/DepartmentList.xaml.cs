@@ -39,10 +39,13 @@ namespace WPFPersonelTracking.Views
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            Department dpt = (Department)gridDepartment.SelectedItem;
+            DepartmentPage dpg = new DepartmentPage();
+            dpg.department = dpt;
+            dpg.ShowDialog();
             using (PersonelTrackingContext db = new PersonelTrackingContext())
             {
-                List<Department> list = db.Departments.OrderBy(x => x.DepartmentName).ToList();
-                gridDepartment.ItemsSource = list;
+                gridDepartment.ItemsSource = db.Departments.OrderBy(x => x.DepartmentName).ToList();
             }
         }
 

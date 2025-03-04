@@ -41,7 +41,7 @@
                 <DataGridTextColumn Header="Id"
                                     Binding="{Binding Id}" 
                                     Visibility="Hidden"/>
-                <DataGridTextColumn Header="DepartmentName"
+                <DataGridTextColumn Header="Nazwa działu"
                                     Binding="{Binding DepartmentName}" 
                                     Width="auto"/>
             </DataGrid.Columns>

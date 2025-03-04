@@ -29,7 +29,7 @@ namespace WPFPersonelTracking
         {
             this.Close();
         }
-
+        public Department department;
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             if(txtDepartmentName.Text.Trim()=="")
@@ -40,13 +40,33 @@ namespace WPFPersonelTracking
             {
                 using (PersonelTrackingContext db = new PersonelTrackingContext())
                 {
-                    Department department = new Department();
-                    department.DepartmentName = txtDepartmentName.Text;
-                    db.Departments.Add(department);
-                    db.SaveChanges();
-                    MessageBox.Show("Dział dodany");
-                    txtDepartmentName.Text = "";
+                    if(department!=null && department.Id != 0)
+                    {
+                        Department updateDpt = new Department();
+                        updateDpt.DepartmentName = txtDepartmentName.Text;
+                        updateDpt.Id = department.Id;
+                        db.Departments.Update(updateDpt);
+                        db.SaveChanges();
+                        MessageBox.Show("Aktualizacja danych przebiegła pomyślnie");
+                    }
+                    else
+                    {
+                        Department department = new Department();
+                        department.DepartmentName = txtDepartmentName.Text;
+                        db.Departments.Add(department);
+                        db.SaveChanges();
+                        MessageBox.Show("Dział dodany");
+                        txtDepartmentName.Text = "";
+                    } 
                 }
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(department!=null && department.Id != 0)
+            {
+                txtDepartmentName.Text = department.DepartmentName;
             }
         }
     }
